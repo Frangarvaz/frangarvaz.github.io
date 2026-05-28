@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rábida Energy H₂ Integration Hub · Francisco García Vázquez</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f5f8fc;color:#1a3a6b;}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(245,248,252,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #d9e4f0;z-index:100;padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-size:15px;font-weight:800;color:#1a3a6b;}.nav-logo span{color:#4a9eff;}
+.nav-links{display:flex;gap:28px;}.nav-links a{font-size:13px;font-weight:500;color:#7a9ab8;text-decoration:none;}
+.nav-links a:hover{color:#1a3a6b;}
+.nav-cta{background:#1a3a6b;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:6px;text-decoration:none;}
+.hero{padding:120px 40px 80px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:#eef4ff;border:1px solid #c0d4f0;border-radius:20px;padding:5px 14px;margin-bottom:20px;}
+.hero-tag-dot{width:6px;height:6px;background:#4a9eff;border-radius:50%;animation:p 2s infinite;}
+@keyframes p{0%,100%{opacity:1;}50%{opacity:0.2;}}
+.hero-tag-txt{font-size:11px;font-weight:700;color:#1a5abf;letter-spacing:1px;text-transform:uppercase;}
+.hero h1{font-size:42px;font-weight:800;color:#1a3a6b;letter-spacing:-1.5px;line-height:1.15;margin-bottom:16px;}
+.hero h1 span{color:#4a9eff;}
+.reveal-wrap{position:relative;overflow:hidden;display:inline-block;}
+.reveal-line{position:absolute;top:0;left:0;width:100%;height:100%;background:#4a9eff;transform:translateX(-101%);animation:revealLine 0.8s cubic-bezier(.4,0,.2,1) 0.3s forwards;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes revealLine{0%{transform:translateX(-101%)}50%{transform:translateX(0)}100%{transform:translateX(101%)}}
+.hero-sub{font-size:16px;color:#7a9ab8;line-height:1.6;margin-bottom:28px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{background:#1a3a6b;color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:7px;text-decoration:none;}
+.btn-secondary{background:#fff;color:#1a3a6b;border:1.5px solid #c0d4f0;border-radius:10px;padding:12px 22px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px;text-decoration:none;}
+.hero-avatar{width:160px;height:160px;background:#1a3a6b;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 8px 32px rgba(26,58,107,0.25);position:relative;}
+.hero-avatar-badge{position:absolute;bottom:-10px;right:-10px;background:#4a9eff;border-radius:10px;padding:5px 10px;font-size:10px;font-weight:800;color:#fff;border:2px solid #f5f8fc;}
+.skills-strip{background:#fff;border-top:1px solid #d9e4f0;border-bottom:1px solid #d9e4f0;padding:20px 40px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+.skill-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#7a9ab8;}
+.skill-item i{font-size:16px;color:#4a9eff;}
+.section{padding:80px 40px;max-width:900px;margin:0 auto;}
+.section-label{font-size:10px;font-weight:800;color:#4a9eff;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.section-title{font-size:28px;font-weight:800;color:#1a3a6b;letter-spacing:-0.8px;margin-bottom:8px;}
+.section-sub{font-size:14px;color:#7a9ab8;margin-bottom:40px;}
+.project-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(74,158,255,0.12);margin-bottom:20px;}
+.project-header{background:#0d2240;padding:28px 32px;position:relative;overflow:hidden;}
+.ph-c1{position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:rgba(74,158,255,0.08);}
+.ph-c2{position:absolute;bottom:-30px;left:60px;width:100px;height:100px;border-radius:50%;background:rgba(74,158,255,0.05);}
+.project-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(74,158,255,0.12);border:1px solid rgba(74,158,255,0.25);border-radius:20px;padding:4px 12px;margin-bottom:14px;}
+.pb-dot{width:5px;height:5px;background:#4a9eff;border-radius:50%;animation:p 1.5s infinite;}
+.pb-txt{font-size:10px;font-weight:700;color:#7eb8f5;letter-spacing:0.8px;}
+.project-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:6px;position:relative;z-index:1;}
+.project-sub{font-size:13px;color:#3d6080;position:relative;z-index:1;}
+.project-body{padding:28px 32px;}
+.project-desc{font-size:14px;color:#5a7a9a;line-height:1.7;margin-bottom:24px;}
+.tech-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.tech-tag{background:#eef4ff;border:1px solid #c0d4f0;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:#1a5abf;}
+.project-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.pstat{background:#f5f8fc;border:1px solid #e0eaf4;border-radius:12px;padding:12px;text-align:center;}
+.pstat-num{font-size:20px;font-weight:800;color:#1a3a6b;letter-spacing:-0.5px;}
+.pstat-unit{font-size:10px;color:#9ab0cc;}
+.pstat-lbl{font-size:10px;color:#9ab0cc;margin-top:2px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;}
+.project-links{display:flex;gap:10px;justify-content:center;}
+.plink{display:flex;align-items:center;gap:6px;padding:10px 18px;border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;}
+.plink-primary{background:#1a3a6b;color:#fff;box-shadow:0 0 12px rgba(26,58,107,0.4);transition:all 0.2s ease;}
+.plink-live{background:#4a9eff;color:#fff;}
+.plink-secondary{background:#fff;color:#1a3a6b;border:1.5px solid #c0d4f0;box-shadow:0 0 10px rgba(74,158,255,0.2);transition:all 0.2s ease;}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.cert-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-left:3px solid #4a9eff;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.cert-icon{width:56px;height:56px;background:#eef4ff;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.cert-icon i{font-size:26px;color:#4a9eff;}
+.cert-name{font-size:13px;font-weight:700;color:#1a3a6b;margin-bottom:4px;}
+.cert-org{font-size:11px;color:#9ab0cc;margin-bottom:10px;}
+.cert-status{display:inline-block;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:0.5px;}
+.cs-done{background:#edfaf4;color:#107e3e;}
+.cs-progress{background:#eef4ff;color:#1a5abf;}
+.cs-pending{background:#f5f5f5;color:#89919a;}
+.divider{height:1px;background:#d9e4f0;max-width:900px;margin:0 auto;}
+footer{background:#0d2240;padding:40px;text-align:center;}
+.footer-name{font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;}
+.footer-sub{font-size:12px;color:#3d6080;margin-bottom:20px;}
+.footer-links{display:flex;justify-content:center;gap:16px;margin-bottom:24px;}
+.flink{display:flex;align-items:center;gap:6px;color:#7eb8f5;font-size:12px;font-weight:600;text-decoration:none;}
+.flink i{font-size:16px;}
+.footer-copy{font-size:11px;color:#2a4060;}
+@media(max-width:768px){.hero{grid-template-columns:1fr;padding:100px 20px 40px;}.hero-avatar{display:none;}.foto-mobile{display:block !important;}.foto-desktop{display:none !important;}.project-stats{grid-template-columns:1fr 1fr;}.certs-grid{grid-template-columns:1fr 1fr;}.skills-strip{gap:16px;padding:20px;}.nav-links{display:none;}.hero-btns{justify-content:center;}.section{padding:40px 20px;}}@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(.22,.68,0,1.2);}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+
+
+
+
+
+
+.cert-card{position:relative;}
+.cert-card::before{content:'';position:absolute;top:0;left:0;width:40%;height:3px;background:linear-gradient(to right,#4a9eff,transparent);border-radius:2px 0 0 0;}
+.cert-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:40%;background:linear-gradient(to bottom,#4a9eff,transparent);border-radius:2px 0 0 0;}
+.cert-card:nth-child(even)::before{left:auto;right:0;background:linear-gradient(to left,#4a9eff,transparent);}
+.cert-card:nth-child(even)::after{left:auto;right:0;background:linear-gradient(to bottom,#4a9eff,transparent);}
+
+.cert-card::before{display:none;}
+.cert-card::after{display:none;}
+
+
+
+.project-card{box-shadow:4px 4px 20px rgba(74,158,255,0.12);}
+
+
+div[style*='border-radius:16px']:nth-child(odd){box-shadow:4px 4px 16px rgba(74,158,255,0.12);}
+div[style*='border-radius:16px']:nth-child(even){box-shadow:-4px 4px 16px rgba(74,158,255,0.12);}
+
+
+
+.cert-card{border:1px solid rgba(74,158,255,0.2);box-shadow:0 4px 16px rgba(74,158,255,0.12);}
+.btn-primary{box-shadow:0 0 12px rgba(26,58,107,0.4);}
+.btn-primary:hover{box-shadow:0 0 22px rgba(74,158,255,0.6);transform:translateY(-1px);}
+.btn-secondary{box-shadow:0 0 10px rgba(74,158,255,0.2);}
+.btn-secondary:hover{box-shadow:0 0 18px rgba(74,158,255,0.5);transform:translateY(-1px);}
+.btn-primary,.btn-secondary{transition:all 0.2s ease;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">frangarvaz<span>.dev</span></div>
+  <div class="nav-links">
+    <a href="#sobre-mi">Sobre mí</a><a href="#proyecto">Proyecto</a>
+    <a href="#abap">ABAP Cloud</a><a href="#certs">Certificaciones</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="https://linkedin.com/in/frangarvaz" class="nav-cta">
+    <i class="ti ti-brand-linkedin" style="font-size:14px"></i>LinkedIn
+  </a>
+</nav>
+<div class="hero">
+  <div>
+    <div class="hero-tag"><div class="hero-tag-dot"></div><span class="hero-tag-txt">En formación · Huelva, España</span></div>
+    <h1 style="font-size:clamp(1.8rem,3.5vw,2.5rem);opacity:0;animation:fadeIn 1s ease 0.3s forwards;">Desarrollador SAP ABAP Cloud | SAP BTP | Backend Developer</h1>
+    <p class="hero-sub">En formación en SAP BTP Integration Suite y ABAP Cloud, con proyectos prácticos reales usando iFlows, OData y S/4HANA Cloud.</p>
+    <div class="foto-mobile" style="display:none;text-align:center;margin-bottom:20px;"><img src="foto.png" style="width:130px;height:130px;border-radius:50%;object-fit:cover;object-position:center 40%;box-shadow:0 0 0 4px #fff,0 0 0 4px #4a9eff;" alt="Francisco Garcia"></div>
+    <div class="hero-btns">
+      <a href="#proyecto" class="btn-primary"><i class="ti ti-rocket" style="font-size:15px"></i>Ver proyecto</a>
+      <a href="https://github.com/Frangarvaz" class="btn-secondary"><i class="ti ti-brand-github" style="font-size:15px"></i>GitHub</a>
+    </div>
+  </div>
+  <img src="foto.png" class="foto-desktop" style="width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center 40%;box-shadow:0 8px 32px rgba(26,58,107,0.25),0 0 0 4px #fff,0 0 0 6px #1a3a6b;position:relative;" alt="Francisco García">
+</div>
+<div class="skills-strip">
+  <div class="skill-item"><i class="ti ti-cloud"></i>SAP BTP</div>
+  <div class="skill-item"><i class="ti ti-code"></i>ABAP Cloud</div>
+  <div class="skill-item"><i class="ti ti-arrows-exchange"></i>Integration Suite</div>
+  <div class="skill-item"><i class="ti ti-database"></i>S/4HANA Cloud</div>
+  <div class="skill-item"><i class="ti ti-brand-javascript"></i>Groovy · JavaScript</div>
+  <div class="skill-item"><i class="ti ti-api"></i>OData · REST</div>
+</div>
+
+<div class="section" id="sobre-mi">
+  <div class="section-label">Sobre mí</div>
+  <div class="section-title">Mi trayectoria</div>
+  <div class="section-sub">Técnico Superior DAM en transición al mundo SAP</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+    <div style="background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:16px;padding:28px;box-shadow:0 4px 16px rgba(74,158,255,0.12);">
+      <div style="font-size:13px;color:#5a7a9a;line-height:1.8;">
+        Soy Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) con experiencia en desarrollo web. Me especializo en el ecosistema SAP.<br><br>
+        Actualmente curso <strong>ABAP Cloud</strong> (IFCT0097) y <strong>SAP BTP Integration Suite</strong> (IFCT0244), con el objetivo de certificarme en <strong>C_ABAPD</strong> y <strong>C_CPI</strong> en julio de 2026.
+      </div>
+    </div>
+    <div style="background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:16px;padding:28px;box-shadow:0 4px 16px rgba(74,158,255,0.12);">
+      <div style="font-size:11px;font-weight:800;color:#4a9eff;letter-spacing:2px;margin-bottom:16px;">STACK TÉCNICO</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">ABAP Cloud</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">SAP BTP</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">Integration Suite</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">CDS Views</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">OData V4</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">RAP</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">Groovy</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">JavaScript</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">Python</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">REST / JSON</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">S/4HANA Cloud</span>
+        <span style="background:#eef4ff;color:#1a3a6b;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;">OAuth 2.0</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section" id="proyecto">
+  <div class="section-label">Proyecto principal</div>
+  <div class="section-title">Rábida Energy H₂ Integration Hub</div>
+  <div class="section-sub">Integración end-to-end desplegada en producción · SAP BTP Trial</div>
+  <div class="project-card">
+    <div class="project-header">
+      <div class="ph-c1"></div><div class="ph-c2"></div>
+      <div class="project-badge"><div class="pb-dot"></div><span class="pb-txt">iFlow desplegado · SAP BTP Trial</span></div>
+      <div class="project-title">Rábida Energy H₂ Integration Hub</div>
+      <div class="project-sub">Certificación automática de hidrógeno verde · Sensor SCADA → SAP BTP → S/4HANA Cloud</div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">Integración real que automatiza la certificación de lotes de hidrógeno verde producidos en plantas de Huelva. El sensor SCADA envía datos de producción a un iFlow en SAP BTP que los procesa mediante un Groovy Script y genera un certificado según el estándar EU-GreenH2-2024.</p>
+      <img src="demo.gif" alt="Demo SCADA en tiempo real" style="width:100%;border-radius:12px;margin:16px 0;border:1px solid #d9e4f0;">
+      <div class="tech-tags">
+        <span class="tech-tag">SAP BTP Integration Suite</span>
+        <span class="tech-tag">ABAP Cloud</span>
+        <span class="tech-tag">Groovy Script</span>
+        <span class="tech-tag">OAuth 2.0</span>
+        <span class="tech-tag">OData v4</span>
+        <span class="tech-tag">CDS Views</span>
+        <span class="tech-tag">RAP</span>
+        <span class="tech-tag">S/4HANA Cloud</span>
+        <span class="tech-tag">REST · JSON</span>
+      </div>
+      <div class="project-stats">
+        <div class="pstat"><div class="pstat-num">4.200<span class="pstat-unit"> kg</span></div><div class="pstat-lbl">H₂ certificado</div></div>
+        <div class="pstat"><div class="pstat-num">894<span class="pstat-unit"> ms</span></div><div class="pstat-lbl">Tiempo proceso</div></div>
+        <div class="pstat"><div class="pstat-num">200<span class="pstat-unit"> OK</span></div><div class="pstat-lbl">HTTP status</div></div>
+        <div class="pstat"><div class="pstat-num">12+</div><div class="pstat-lbl">Commits</div></div>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Frangarvaz/rabida-energy-h2-integration" class="plink plink-primary"><i class="ti ti-brand-github" style="font-size:14px"></i>Ver código</a>
+        <a href="https://github.com/Frangarvaz/rabida-energy-h2-integration" class="plink plink-secondary"><i class="ti ti-file-description" style="font-size:14px"></i>README</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section" id="abap">
+  <div class="section-label">Componente ABAP Cloud</div>
+  <div class="section-title">Lo que he construido en ABAP Cloud</div>
+  <div class="section-sub">Tabla, CDS View y OData V4 desplegados en S/4HANA Cloud</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+    <div style="background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(74,158,255,0.12);">
+      <div style="font-size:10px;font-weight:800;color:#4a9eff;letter-spacing:2px;margin-bottom:8px;">DATABASE TABLE</div>
+      <div style="font-size:16px;font-weight:700;color:#1a3a6b;margin-bottom:6px;">ZFGV_H2PROD</div>
+      <div style="font-size:13px;color:#7a9ab8;">Tabla transparente que almacena los datos de producción de hidrógeno verde certificados por planta y fecha.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(74,158,255,0.12);">
+      <div style="font-size:10px;font-weight:800;color:#4a9eff;letter-spacing:2px;margin-bottom:8px;">CDS VIEW</div>
+      <div style="font-size:16px;font-weight:700;color:#1a3a6b;margin-bottom:6px;">ZI_H2PRODUCTION</div>
+      <div style="font-size:13px;color:#7a9ab8;">Vista CDS que expone los datos de producción H₂ con anotaciones para consumo desde servicios OData.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(74,158,255,0.12);">
+      <div style="font-size:10px;font-weight:800;color:#4a9eff;letter-spacing:2px;margin-bottom:8px;">SERVICE BINDING · ODATA V4</div>
+      <div style="font-size:16px;font-weight:700;color:#1a3a6b;margin-bottom:6px;">ZSB_H2PRODUCTION</div>
+      <div style="font-size:13px;color:#7a9ab8;">Servicio OData V4 publicado y consumible desde SAP BTP Integration Suite. Estado: Published.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(74,158,255,0.2);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(74,158,255,0.12);">
+      <div style="font-size:10px;font-weight:800;color:#4a9eff;letter-spacing:2px;margin-bottom:8px;">ABAP OO · CLASES</div>
+      <div style="font-size:16px;font-weight:700;color:#1a3a6b;margin-bottom:6px;">ZCL_FGV_REPASO</div>
+      <div style="font-size:13px;color:#7a9ab8;">Clases ABAP orientadas a objetos con herencia, interfaces y manejo de excepciones desarrolladas en ABAP Cloud.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section" id="certs">
+  <div class="section-label">Formación y certificaciones</div>
+  <div class="section-title">Camino SAP</div>
+  <div class="section-sub">Certificaciones oficiales SAP en curso</div>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon"><i class="ti ti-certificate"></i></div><div class="cert-name">C_ABAPD</div><div class="cert-org">SAP Certified · ABAP Developer</div><span class="cert-status cs-progress">En preparación</span></div>
+    <div class="cert-card"><div class="cert-icon"><i class="ti ti-certificate"></i></div><div class="cert-name">C_CPI</div><div class="cert-org">SAP Certified · Integration Suite</div><span class="cert-status cs-progress">En preparación</span></div>
+    <div class="cert-card"><div class="cert-icon"><i class="ti ti-school"></i></div><div class="cert-name">IFCT0097</div><div class="cert-org">SAP Back-End Developer · ABAP Cloud</div><span class="cert-status cs-progress">En curso · 2026</span></div>
+    <div class="cert-card"><div class="cert-icon"><i class="ti ti-school"></i></div><div class="cert-name">IFCT0244</div><div class="cert-org">SAP Business Technology Platform</div><span class="cert-status cs-progress">En curso · 2026</span></div>
+    <div class="cert-card"><div class="cert-icon"><i class="ti ti-device-desktop-code"></i></div><div class="cert-name">DAM</div><div class="cert-org">Desarrollo Aplicaciones Multiplataforma</div><span class="cert-status cs-done">Completado</span></div>
+    <div class="cert-card"><div class="cert-icon"><i class="ti ti-world"></i></div><div class="cert-name">Web Dev</div><div class="cert-org">WordPress · HTML · CSS · JavaScript</div><span class="cert-status cs-done">Experiencia previa</span></div>
+  </div>
+</div>
+<div class="divider"></div>
+<footer id="contacto">
+  <div class="footer-name">Francisco García Vázquez</div>
+  <div class="footer-sub">Desarrollador SAP ABAP Cloud | SAP BTP | Backend Developer · Huelva, España</div>
+  <div class="footer-links">
+    <a href="https://github.com/Frangarvaz" class="flink"><i class="ti ti-brand-github"></i>GitHub</a>
+    <a href="https://linkedin.com/in/frangarvaz" class="flink"><i class="ti ti-brand-linkedin"></i>LinkedIn</a>
+    <a href="mailto:frangarvaz@gmail.com" class="flink"><i class="ti ti-mail"></i>Email</a>
+  </div>
+  <div class="footer-copy">© 2026 Francisco García Vázquez · frangarvaz.github.io</div>
+</footer>
+<script>// Typing effect
+const h1 = document.querySelector('h1');
+const span = h1.querySelector('span');
+const line1 = 'Desarrollador SAP ABAP Cloud | SAP BTP | Backend Developer';
+const line2 = '';
+h1.innerHTML = '<span id="t1"></span><br><span id="t2" style="color:#4a9eff;opacity:0"></span>';
+let i = 0;
+function typeLine1() {
+  if (i < line1.length) {
+    document.getElementById('t1').textContent += line1[i++];
+    setTimeout(typeLine1, 80);
+  } else {
+    document.getElementById('t2').style.opacity = '1';
+    let j = 0;
+    function typeLine2() {
+      if (j < line2.length) {
+        document.getElementById('t2').textContent += line2[j++];
+        setTimeout(typeLine2, 80);
+      }
+    }
+    typeLine2();
+  }
+}
+setTimeout(typeLine1, 400);
+
+// Scroll fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.section, .project-card, .cert-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+
+// Particles
+const canvas = document.createElement('canvas');
+canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.35';
+document.body.prepend(canvas);
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+const particles = Array.from({length: 40}, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 2 + 1,
+  dx: (Math.random() - 0.5) * 0.4,
+  dy: (Math.random() - 0.5) * 0.4
+}));
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(74,158,255,0.5)';
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+</script>
+<script>
+document.querySelectorAll('.section, .project-card, .cert-card, .skill-item, .pstat').forEach((el, i) => {
+  el.classList.add('fade-up');
+  el.style.transitionDelay = (i % 4) * 0.1 + 's';
+});
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
